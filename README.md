@@ -22,7 +22,12 @@ Both IDEs share the same project folder. They communicate by reading and writing
   │   ├── conventions.md    # Coding style, naming rules
   │   ├── current-sprint.md # Active goals, in-progress features
   │   └── decisions.md      # Key decisions already made
-  └── history/         # Archived task/result pairs (gitignored)
+  ├── history/         # Archived task/result pairs (gitignored)
+  ├── scripts/
+  │   ├── archive.sh / archive.cmd   # Archive completed exchanges
+  │   ├── reset.sh / reset.cmd       # Reset statuses and clear files
+  │   └── pre_invocation.js          # Antigravity pre-invocation hook
+  └── hooks.json       # Antigravity hook configuration
 ```
 
 ## Workflows
@@ -87,6 +92,7 @@ Load the steering file in Kiro chat with `#agent-collaboration` to give Kiro ful
 **File:** <relative path to relevant file, if any>
 **Context:** <brief context the other agent needs>
 **Question/Action:** <exactly what the other agent should do>
+**Task-ID:** <timestamp, e.g. 2026-05-24T13-00-00>
 ```
 
 ## Result Format
@@ -94,6 +100,7 @@ Load the steering file in Kiro chat with `#agent-collaboration` to give Kiro ful
 ```markdown
 ## Result: <task title>
 **Status:** Completed / Partial / Failed
+**Task-ID:** <same id from task>
 **Response:**
 <full response here>
 ```
@@ -114,5 +121,9 @@ Load the steering file in Kiro chat with `#agent-collaboration` to give Kiro ful
 | `.agents/context/current-sprint.md` | Active goals and in-progress features |
 | `.agents/context/decisions.md` | Key architectural decisions |
 | `.agents/history/` | Archived task/result pairs (gitignored) |
+| `.agents/scripts/archive.sh` / `.cmd` | Archive a completed task/result pair to `history/` |
+| `.agents/scripts/reset.sh` / `.cmd` | Reset agent statuses and clear task/result files |
+| `.agents/scripts/pre_invocation.js` | Antigravity pre-invocation hook — injects pending tasks on startup |
+| `.agents/hooks.json` | Antigravity hook configuration |
 | `.kiro/hooks/kiro-process-antigravity-task.kiro.hook` | Kiro hook — auto-processes tasks from Antigravity |
 | `.kiro/steering/agent-collaboration.md` | Kiro steering — workflow guidelines for Kiro agent |

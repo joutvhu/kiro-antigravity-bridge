@@ -21,7 +21,7 @@ const agentsDir = path.join(projectRoot, '.agents');
 const taskFile = path.join(agentsDir, 'antigravity', 'task.md');
 const statusFile = path.join(agentsDir, 'antigravity', 'status.md');
 
-const response = { injectSteps: [] };
+const response = {injectSteps: []};
 
 // Check for a pending task
 if (fs.existsSync(taskFile)) {
@@ -54,7 +54,7 @@ if (fs.existsSync(taskFile)) {
         : 'Write your response to `.agents/antigravity/result.md` and update `.agents/antigravity/status.md` to `done`.',
     ].join('\n');
 
-    response.injectSteps.push({ userMessage: messageText });
+    response.injectSteps.push({userMessage: messageText});
   }
 }
 
