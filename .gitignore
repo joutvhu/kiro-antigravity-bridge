@@ -1,0 +1,15 @@
+# Agent result files — generated content, not tracked
+.agents/antigravity/result.md
+.agents/kiro/result.md
+
+# History files — generated at runtime
+.agents/history/*
+!.agents/history/.gitkeep
+
+# IDE folders
+.idea/
+.vscode/
+*.suo
+*.user
+.DS_Store
+Thumbs.db
